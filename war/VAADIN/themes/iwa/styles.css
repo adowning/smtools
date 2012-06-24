@@ -1,0 +1,43 @@
+@import "../reindeer/styles.css";
+
+.dividingRow {
+	height: 3px;
+	background-color:rgb(208, 228, 246);
+}
+
+
+.spacingRow {
+	height: 30px;						
+}
+		
+.v-select-option.v-radiobutton {
+	display: inline-block;
+	padding-right: 10px;
+}
+
+.label {
+	font-weight: bold;
+	font-size: large;
+}
+
+.label-right-align {
+	text-align: right;	
+}
+
+.v-accordion-item {
+	position: relative;
+	zoom: 1;
+	font-size: small;
+}
+.v-accordion-item-caption {
+	overflow: hidden;
+	white-space: nowrap;
+	background: #eee;
+	border-bottom: 2px solid #ddd;
+	
+}
+.v-accordion-item-caption .v-caption {
+	cursor: pointer;
+	font-size: small;
+}
+

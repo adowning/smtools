@@ -1,0 +1,641 @@
+<tmx version="1.4">
+	<body>
+		<!-- Captions -->
+		<tu tuid="Active">
+			<tuv lang="en">
+				<seg>Active</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Aktiv</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Accept">
+			<tuv lang="en">
+				<seg>Accept</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Annehmen</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Administration">
+			<tuv lang="en">
+				<seg>Administration</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Administration</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Cancel">
+			<tuv lang="en">
+				<seg>Cancel</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Abbrechen</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Change">
+			<tuv lang="en">
+				<seg>Change</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Ändern</seg>
+			</tuv>
+		</tu>		
+		<tu tuid="ChangePassword">
+			<tuv lang="en">
+				<seg>Change Password</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Passwort ändern</seg>
+			</tuv>
+		</tu>
+		<tu tuid="ChangeLocale">
+			<tuv lang="en">
+				<seg>Change Language</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Sprache ändern</seg>
+			</tuv>
+		</tu>		
+		<tu tuid="Created">
+			<tuv lang="en">
+				<seg>Created by</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Erstellt von</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Date">
+			<tuv lang="en">
+				<seg>Date</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Datum</seg>
+			</tuv>
+		</tu>
+		<tu tuid="DateCreated">
+			<tuv lang="en">
+				<seg>Date Created</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Erstellt am</seg>
+			</tuv>
+		</tu>
+		<tu tuid="DateModified">
+			<tuv lang="en">
+				<seg>Date Modified</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Geändert am</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Delete">
+			<tuv lang="en">
+				<seg>Delete</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Löschen</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Email">
+			<tuv lang="en">
+				<seg>eMail</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>E-Mail</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Feminine">
+			<tuv lang="en">
+				<seg>Mrs</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Frau</seg>
+			</tuv>
+		</tu>
+		<tu tuid="FirstName">
+			<tuv lang="en">
+				<seg>First Name</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Vorname</seg>
+			</tuv>
+		</tu>
+		<tu tuid="From">
+			<tuv lang="en">
+				<seg>From</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Von</seg>
+			</tuv>
+		</tu>
+		<tu tuid="General">
+			<tuv lang="en">
+				<seg>General</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Allgemeines</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Help">
+			<tuv lang="en">
+				<seg>Help</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Hilfe</seg>
+			</tuv>
+		</tu>
+		<tu tuid="HelpUrl">
+			<tuv lang="en">
+				<seg>http://code.google.com/p/instant-webapp/wiki/FAQ</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>http://code.google.com/p/instant-webapp/wiki/FAQ</seg>
+			</tuv>
+		</tu>		
+		<tu tuid="Home">
+			<tuv lang="en">
+				<seg>Home</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Home</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Login">
+			<tuv lang="en">
+				<seg>Login</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Anmelden</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Logout">
+			<tuv lang="en">
+				<seg>Logout</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Abmelden</seg>
+			</tuv>
+		</tu>		
+		<tu tuid="LoggedInAs">
+			<tuv lang="en">
+				<seg>Logged in as {0}</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Angemeldet als {0}</seg>
+			</tuv>
+		</tu>				
+		<tu tuid="LostPassword">
+			<tuv lang="en">
+				<seg>Lost Password?</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Passwort vergessen?</seg>
+			</tuv>
+		</tu>		
+		<tu tuid="Link">
+			<tuv lang="en">
+				<seg>Link</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Link</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Masculine">
+			<tuv lang="en">
+				<seg>Mr</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Herr</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Modified">
+			<tuv lang="en">
+				<seg>Modified by</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Geändert von</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Module">
+			<tuv lang="en">
+				<seg>Module</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Modul</seg>
+			</tuv>
+		</tu>
+		<tu tuid="New">
+			<tuv lang="en">
+				<seg>New</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Neu</seg>
+			</tuv>
+		</tu>
+		<tu tuid="NewPassword">
+			<tuv lang="en">
+				<seg>New Password</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Neues Passwort</seg>
+			</tuv>
+		</tu>
+		<tu tuid="NewLocale">
+			<tuv lang="en">
+				<seg>New Language</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Neue Sprache</seg>
+			</tuv>
+		</tu>		
+		<tu tuid="Name">
+			<tuv lang="en">
+				<seg>Name</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Name</seg>
+			</tuv>
+		</tu>
+		<tu tuid="NewPasswordRepeated">
+			<tuv lang="en">
+				<seg>Retype New Password</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Neues Passwort wiederholen</seg>
+			</tuv>
+		</tu>
+		<tu tuid="No">
+			<tuv lang="en">
+				<seg>No</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Nein</seg>
+			</tuv>
+		</tu>
+		<tu tuid="OldPassword">
+			<tuv lang="en">
+				<seg>Current Password</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Aktuelles Passwort</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Ok">
+			<tuv lang="en">
+				<seg>OK</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>OK</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Password">
+			<tuv lang="en">
+				<seg>Password</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Passwort</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Permissions">
+			<tuv lang="en">
+				<seg>Permissions</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Berechtigungen</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Refresh">
+			<tuv lang="en">
+				<seg>Refresh</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Aktualisieren</seg>
+			</tuv>
+		</tu>
+		<tu tuid="RequestNewPassword">
+			<tuv lang="en">
+				<seg>Request New Password</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Neues Passwort senden</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Role">
+			<tuv lang="en">
+				<seg>Role</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Rolle</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Roles">
+			<tuv lang="en">
+				<seg>Roles</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Rollen</seg>
+			</tuv>
+		</tu>
+		<tu tuid="RolesAndRights">
+			<tuv lang="en">
+				<seg>Roles and Rights</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Rollen und Rechte</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Sample">
+			<tuv lang="en">
+				<seg>Never Late</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Beispiel</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Salutation">
+			<tuv lang="en">
+				<seg>Salutation</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Anrede</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Save">
+			<tuv lang="en">
+				<seg>Save</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Speichern</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Send">
+			<tuv lang="en">
+				<seg>Send</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Senden</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Settings">
+			<tuv lang="en">
+				<seg>User Settings</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Einstellungen</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Subject">
+			<tuv lang="en">
+				<seg>Subject</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Betreff</seg>
+			</tuv>
+		</tu>
+		<tu tuid="To">
+			<tuv lang="en">
+				<seg>To</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Bis</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Password">
+			<tuv lang="en">
+				<seg>Password</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Passwort</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Unregister">
+			<tuv lang="en">
+				<seg>Unregister</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Abmelden</seg>
+			</tuv>
+		</tu>
+		<tu tuid="User">
+			<tuv lang="en">
+				<seg>User</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Benutzer</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Username">
+			<tuv lang="en">
+				<seg>Username</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Benutzername</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Users">
+			<tuv lang="en">
+				<seg>Users</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Benutzer</seg>
+			</tuv>
+		</tu>
+		<tu tuid="Yes">
+			<tuv lang="en">
+				<seg>Yes</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Ja</seg>
+			</tuv>
+		</tu>
+		<!-- Messages -->
+		<tu tuid="AccountLockedMsg">
+			<tuv lang="en">
+				<seg>Your account is locked. Please refer to the System Administrator</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Ihr Benutzerkonto ist gesperrt. Bitte wenden Sie sich an den System Administrator</seg>
+			</tuv>
+		</tu>
+		<tu tuid="ChangesSavedMsg">
+			<tuv lang="en">
+				<seg>Your changes have been saved</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Ihre Änderungen wurden gespeichert</seg>
+			</tuv>
+		</tu>
+		<tu tuid="ChangesSaveFailedMsg">
+			<tuv lang="en">
+				<seg>Your changes could not be saved</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Ihre Änderungen konnten nicht gespeichert werden.</seg>
+			</tuv>
+		</tu>
+		<tu tuid="ChangesSaveFailedHintMsg">
+			<tuv lang="en">
+				<seg>Please try again later or report to the System Administrator</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Bitte versuchen Sie es später oder kontaktieren Sie den System Administrator</seg>
+			</tuv>
+		</tu>		
+		<tu tuid="ConfirmDeleteMsg">
+			<tuv lang="en">
+				<seg>Do you really want to delete this entry?</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Wollen Sie den Eintrag wirklich löschen?</seg>
+			</tuv>
+		</tu>							
+		<tu tuid="DuplicateEntryMsg">
+			<tuv lang="en">
+				<seg>There is already an entry with the same value in the field "{0}"</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Es gibt bereits einen Eintrag mit dem gleichen Wert im Feld "{0}"</seg>
+			</tuv>
+		</tu>						
+		<tu tuid="EnterNewRoleMsg">
+			<tuv lang="en">
+				<seg>Enter new role here...</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Neue Rolle hier eingeben...</seg>
+			</tuv>
+		</tu>
+		<tu tuid="EnterNewRoleInstructionMsg">
+			<tuv lang="en">
+				<seg>Enter new role and press "Enter" to save</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Geben Sie eine neue Rolle ein und drücken Sie "Eingabe" zum speichern</seg>
+			</tuv>
+		</tu>
+		<tu tuid="InternalExceptionMsg">
+			<tuv lang="en">
+				<seg>There was an unexpected system internal problem. Please report this to {0}</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Es gab ein unerwartetes, system-internes Problem. Bitte melden Sie das an {0}</seg>
+			</tuv>
+		</tu>
+		<tu tuid="InvalidEmailMsg">
+			<tuv lang="en">
+				<seg>The email address "{0}" is not a valid email adress</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Die E-Mail Adresse "{0}" ist ungültig</seg>
+			</tuv>
+		</tu>				
+		<tu tuid="LoginFailedMsg">
+			<tuv lang="en">
+				<seg>Login has failed. Please check your username and password</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Sie konnten nicht angemeldet werden. Bitte überprüfen Sie Benutzername und Passwort</seg>
+			</tuv>
+		</tu>
+		<tu tuid="NoUserFoundForEmailAddressMsg">
+			<tuv lang="en">
+				<seg>Sorry, no user found with the given email address</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Mit der angegebenen E-Mail Adresse wurde kein Benutzer gefunden</seg>
+			</tuv>
+		</tu>		
+		<tu tuid="NumericalOnlyMsg">
+			<tuv lang="en">
+				<seg>Only numerical values allowed</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Nur Zahlen erlaubt</seg>
+			</tuv>
+		</tu>
+		<tu tuid="NewPasswordMailContentMsg">
+			<tuv lang="en">
+				<seg>Someone (most likely you) requested a new password for the VEMICO User "{0}" on environment "{1}": {2}. 
+				Please change the password after successful login.</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Jemand (wahrscheinlich Sie) hat ein neues Passwort für den VEMICO Benutzer "{0}" auf der Umgebung "{1}" angefordert: {2}. 
+				Bitte ändern Sie das Passwort nach erfolgreicher Anmeldung.</seg>
+			</tuv>
+		</tu>		
+		<tu tuid="NewPasswordMailSubjectMsg">
+			<tuv lang="en">
+				<seg>New Password</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Neues Passwort</seg>
+			</tuv>
+		</tu>		
+		<tu tuid="PasswordChangedSuccessMsg">
+			<tuv lang="en">
+				<seg>Your password has been changed</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Ihr Passwort wurde geändert</seg>
+			</tuv>
+		</tu>
+		<tu tuid="PasswordChangedFailedMsg">
+			<tuv lang="en">
+				<seg>Your password could not be changed</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Ihr Passwort konnte nicht geändert werden</seg>
+			</tuv>
+		</tu>
+		<tu tuid="PasswordSentSuccessMsg">
+			<tuv lang="en">
+				<seg>A new password has been sent to you</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Ein E-Mail mit einem neuen Passwort wurde an Sie gesendet</seg>
+			</tuv>
+		</tu>
+		<tu tuid="PasswordSentFailedMsg">
+			<tuv lang="en">
+				<seg>There was a problem sending a new password to you. Please refer to the System Administrator</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Es konnte kein neues Passwort an Sie gesendet werden. Bitte kontaktieren Sie den System Administrator</seg>
+			</tuv>
+		</tu>
+		<tu tuid="RoleStillInUseMsg">
+			<tuv lang="en">
+				<seg>The selected role is still referenced in one or more {0} entries. Please remove these references before deleting this role
+				</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Die selektierte Rolle wird in einem oder mehreren {0} Einträgen referenziert. Bitte entfernen Sie zuerst die Referenzen um diese Rolle zu löschen</seg>
+			</tuv>
+		</tu>
+		<tu tuid="ValueRequiredMsg">
+			<tuv lang="en">
+				<seg>Value is required in Field "{0}"</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Das Feld "{0}" darf nicht leer sein</seg>
+			</tuv>
+		</tu>
+		<tu tuid="WelcomeMsg">
+			<tuv lang="en">
+				<seg><b>Welcome</b> at Instant Web App IWA. This text can be changed in the file translations.xml</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Willkommen bei Instant Web App IWA. Dieser Text kann im file translations.xml geändert werden</seg>
+			</tuv>
+		</tu>
+		<tu tuid="CopyrightMsg">
+			<tuv lang="en">
+				<seg>Powered by Instant Web App (IWA)</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Powered by Instant Web App (IWA)</seg>
+			</tuv>
+		</tu>			
+	</body>
+</tmx>
