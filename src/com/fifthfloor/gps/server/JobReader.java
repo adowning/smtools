@@ -27,7 +27,7 @@ public class JobReader extends DefaultHandler {
 	private ArrayList<SMJob> jobs;
 	private String characters;
 
-	public JobReader() {
+	public JobReader() throws java.net.SocketTimeoutException {
 
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		try {
@@ -40,9 +40,11 @@ public class JobReader extends DefaultHandler {
 
 			t.printStackTrace();
 
-		} finally {
-
 		}
+			finally {
+		}
+
+		
 
 	}
 

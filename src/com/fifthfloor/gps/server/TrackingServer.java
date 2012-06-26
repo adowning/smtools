@@ -1,6 +1,7 @@
 package com.fifthfloor.gps.server;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -28,7 +29,12 @@ public class TrackingServer extends HttpServlet {
 
 	public TrackingServer() {
 
-		JobReader jr = new JobReader();
+		JobReader jr = null;
+		try {
+			jr = new JobReader();
+		} catch (SocketTimeoutException e1) {
+			e1.printStackTrace();
+		}
 		joblist = jr.getJobs();
 		VehicleReader vr = new VehicleReader();
 		vehiclelist = vr.getVehicles();
