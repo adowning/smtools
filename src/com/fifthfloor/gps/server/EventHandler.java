@@ -12,6 +12,7 @@ import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
 
 import com.fifthfloor.gps.server.objects.Company;
 import com.fifthfloor.gps.server.objects.SMJob;
+import com.fifthfloor.gps.server.objects.Vehicle;
 
 
 
@@ -19,13 +20,13 @@ import com.fifthfloor.gps.server.objects.SMJob;
 public class EventHandler {
 	static DateTime currenttime = new DateTime();
 	
-	public static void checkForEvent(String veh, String traveltime){
-		SMJob nextjob = SMJobHandler.getNextJob(veh);
-		checkForShortTimeAlert(veh, traveltime, nextjob);
+	public static void checkForEvent(Vehicle v, String traveltime){
+		SMJob nextjob = SMJobHandler.getNextJob(v);
+		checkForShortTimeAlert(v, traveltime, nextjob);
 	}
 	
 	
-	private static void checkForShortTimeAlert(String veh, String traveltime, SMJob nextjob){
+	private static void checkForShortTimeAlert(Vehicle v, String traveltime, SMJob nextjob){
 		DateTime arrivaltime = nextjob.getArrivaltime();
 		DateTime eta = addTravelTimeAndCurrentTime(traveltime);
 		if(arrivaltime.getDayOfYear() != eta.getDayOfYear()){
@@ -34,12 +35,12 @@ public class EventHandler {
 		}
 		if(eta.isAfter(arrivaltime)){
 			int minuteslate = eta.getMinuteOfDay() - arrivaltime.getMinuteOfDay();
-			System.out.println("truck "+veh+" is going to be late by "+ minuteslate +" minutes, sending alert");
-			sendAlert(veh, nextjob, minuteslate);
+			System.out.println("truck "+v.getVin()+" is going to be late by "+ minuteslate +" minutes, sending alert");
+			sendAlert(v.getVin(), nextjob, minuteslate);
 
 		}else{
 			int minutesearly = arrivaltime.getMinuteOfDay() - eta.getMinuteOfDay();
-			System.out.println("truck "+veh+" is going to be ontime by "+ minutesearly + " minutes");
+			System.out.println("truck "+v.getVin()+" is going to be ontime by "+ minutesearly + " minutes");
 
 		}
 	}

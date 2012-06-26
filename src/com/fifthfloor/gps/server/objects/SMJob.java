@@ -7,6 +7,9 @@ import javax.persistence.UniqueConstraint;
 import org.joda.time.DateTime;
 import org.vaadin.appfoundation.persistence.data.AbstractPojo;
 
+import com.fifthfloor.gps.helpers.MapsHelper;
+import com.fifthfloor.gps.server.MapReader;
+
 @Entity
 @Table(name = "appSMJob", uniqueConstraints = { @UniqueConstraint(columnNames = { "customername" }) })
 public class SMJob extends AbstractPojo {
@@ -68,6 +71,62 @@ public class SMJob extends AbstractPojo {
 
 	public SMJob(DateTime at) {
 		arrivaltime = at;
+	}
+	
+	String time = "";
+	String name = "";
+	String techs = "";
+	String address = "";
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String a) {
+		String[] sa = a.split(" ");
+		String url = "http://maps.google.com/maps/api/geocode/xml?address="+sa[0]+"+"+sa[1]+"+"+sa[2]+"+"+sa[3]+"&sensor=false";
+		MapReader mr = new MapReader(url);
+		this.location = mr.getAddress();
+		System.out.println("LOCATION === "+ location);
+		this.address = address;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		System.out.println("my date is:"+ time);
+		this.time = time;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getTechs() {
+		return techs;
+	}
+
+	public void setTechs(String techs) {
+		this.techs = techs;
+	}
+
+	
+	public SMJob(){
+		
+	}
+	
+	public SMJob(String s){
+		String[] sa = s.split(";");
+		this.time = sa[0];
+		this.name = sa[1];
+		this.address = sa[2];
+		this.techs = sa[3];
+		
 	}
 
 }

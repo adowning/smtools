@@ -28,6 +28,7 @@ import org.xml.sax.SAXException;
 
 import com.fifthfloor.gps.server.objects.Company;
 import com.fifthfloor.gps.server.objects.SMJob;
+import com.fifthfloor.gps.server.objects.Vehicle;
 import com.gargoylesoftware.htmlunit.WebClient;
 
 
@@ -38,21 +39,26 @@ public class SMJobHandler {
 
 	static DateTime currenttime = new DateTime();
 	static int i = 0;
-	public static SMJob getNextJob(String veh) {
-		i++;
-		System.out.println(i);
-		LinkedList joblist = getListForToday(veh);
-		LinkedList activejobs = new LinkedList();
-		Iterator it = joblist.iterator();
+	
+	
+	public static SMJob getNextJob(Vehicle veh) {
+	
+		ArrayList<SMJob> joblist = TrackingServer.getJoblist();
+		ArrayList<SMJob> activejobs = new ArrayList<SMJob>();
+		Iterator<SMJob> it = joblist.iterator();
+		//TODO add time check
 		while (it.hasNext()) {
-			SMJob smjob = (SMJob) it.next();
-			if (!smjob.isHasarrived()) {
-				activejobs.add(smjob);
+			SMJob smjob = it.next();
+			if(veh.getDescription() == null){
+				return null;
+			}
+			if (!smjob.isHasarrived() && smjob.getTechs().toLowerCase().contains(veh.getDriver().toLowerCase())) {
+				return smjob;
 			}else{
 				System.out.println(">>>>>>>>> found arrived job");
 			}
 		}
-		SMJob nextjob = (SMJob) activejobs.getFirst();
+		SMJob nextjob = activejobs.get(0);
 
 		return nextjob;
 
@@ -61,11 +67,11 @@ public class SMJobHandler {
 	private static Company getCompany(String veh) {
 		Collection<Company> clist = FacadeFactory.getFacade().list(
 				Company.class);
-		Iterator it = clist.iterator();
+		Iterator<Company> it = clist.iterator();
 		System.out.println(clist.size());
 		Company thiscompany = null;
 		while (it.hasNext()) {
-			Company nc = (Company) it.next();
+			Company nc = it.next();
 			if (nc.hasVehicle("358696045901207")) {
 				thiscompany = nc;
 			}
@@ -79,60 +85,29 @@ public class SMJobHandler {
 
 	}
 
-	private static LinkedList getListForToday(String veh) {
-		// TODO fix for SMAPI
-		//Company comp = getCompany(veh);
-		
-		LinkedList l = new LinkedList();
-		SMJob a = new SMJob(currenttime.plusMinutes(47));
-		a.setCustomername("a");
-		a.setLocation("32.307322 -95.264832");
-		a.setVehicle(veh);
-		l.add(a);
-		SMJob b = new SMJob(currenttime.plusHours(3));
-		b.setCustomername("b");
-		b.setLocation("32.318892 -95.246658");
-		b.setVehicle(veh);
+	
 
-		l.add(b);
-		SMJob c = new SMJob(currenttime.plusHours(6));
-		c.setCustomername("c");
-		c.setLocation("32.226821 -95.225504");
-		c.setVehicle(veh);
+	private static SMJob getJob(String n) {
 
-		l.add(c);
-		SMJob d = new SMJob(currenttime.plusHours(9));
-		d.setCustomername("d");
-		d.setLocation("32.515697 -95.409400");
-		d.setVehicle(veh);
-
-		l.add(d);
-		return l;
-
-	}
-
-	private static SMJob getJob(String veh) {
-
-		Collection<SMJob> jlist = getListForToday(veh);
-		Iterator it = jlist.iterator();
-		SMJob job = null;
+		ArrayList<SMJob> jlist = TrackingServer.getJoblist();
+		Iterator<SMJob> it = jlist.iterator();
+		SMJob nc = null;
 		while (it.hasNext()) {
-			SMJob nc = (SMJob) it.next();
-			if (nc.getVehicle().equals(veh)) {
-				job = nc;
-				break;
+			 nc = it.next();
+			if (nc.getName().equals(n)) {
+				return nc;
 			}
 
 		}
-		if (job == null) {
-			log.severe("JOB NOT FOUND");
+		if (nc == null) {
+			log.severe("JOB with name "+ n+" NOT FOUND");
 		}
 
-		return job;
+		return nc;
 	}
 
-	public static void setJobHasArrived(String veh) {
-		SMJob job = getJob(veh);
+	public static void setJobHasArrived(String n) {
+		SMJob job = getJob(n);
 		job.setHasarrived(true);
 		if (job == null) {
 			System.out.println("JOB NOT FOUND");
