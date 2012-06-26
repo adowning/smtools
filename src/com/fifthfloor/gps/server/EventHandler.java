@@ -10,6 +10,7 @@ import java.util.Map;
 import org.joda.time.DateTime;
 import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
 
+import com.fifthfloor.gps.helpers.TimeHelper;
 import com.fifthfloor.gps.server.objects.Company;
 import com.fifthfloor.gps.server.objects.SMJob;
 import com.fifthfloor.gps.server.objects.Vehicle;
@@ -20,29 +21,42 @@ import com.fifthfloor.gps.server.objects.Vehicle;
 public class EventHandler {
 	static DateTime currenttime = new DateTime();
 	
-	public static void checkForEvent(Vehicle v, String traveltime){
-		SMJob nextjob = SMJobHandler.getNextJob(v);
-		checkForShortTimeAlert(v, traveltime, nextjob);
+	public static void checkForEvent(Vehicle v,  SMJob job, String traveltime ){
+		System.out.println("event handler: hit");
+		checkForShortTimeAlert(v, traveltime, job );
 	}
 	
 	
 	private static void checkForShortTimeAlert(Vehicle v, String traveltime, SMJob nextjob){
-		DateTime arrivaltime = nextjob.getArrivaltime();
-		DateTime eta = addTravelTimeAndCurrentTime(traveltime);
-		if(arrivaltime.getDayOfYear() != eta.getDayOfYear()){
-			System.out.println("ERROR: YOUR ETA AND JOB ARRIVAL TIME DAYS ARE NOT MATCHING UP!!!");
-			return;
-		}
-		if(eta.isAfter(arrivaltime)){
-			int minuteslate = eta.getMinuteOfDay() - arrivaltime.getMinuteOfDay();
-			System.out.println("truck "+v.getVin()+" is going to be late by "+ minuteslate +" minutes, sending alert");
-			sendAlert(v.getVin(), nextjob, minuteslate);
-
+		
+		int difference = TimeHelper.figureTardiness(nextjob.getTime() , traveltime);
+		if( difference < 5 ){
+			System.out.println("eventhandler >> your going to be late by " + difference);
 		}else{
-			int minutesearly = arrivaltime.getMinuteOfDay() - eta.getMinuteOfDay();
-			System.out.println("truck "+v.getVin()+" is going to be ontime by "+ minutesearly + " minutes");
+			System.out.println("eventhandler >> your going to be ontime by "+difference);
 
 		}
+//		DateTime arrivaltime = nextjob.getArrivaltime();
+//		DateTime eta = addTravelTimeAndCurrentTime(traveltime);
+//		if(arrivaltime.getDayOfYear() != eta.getDayOfYear()){
+//			System.out.println("1");
+//			System.out.println("ERROR: YOUR ETA AND JOB ARRIVAL TIME DAYS ARE NOT MATCHING UP!!!");
+//			return;
+//		}
+//		if(eta.isAfter(arrivaltime)){
+//			System.out.println("2");
+//
+//			int minuteslate = eta.getMinuteOfDay() - arrivaltime.getMinuteOfDay();
+//			System.out.println("truck "+v.getVin()+" is going to be late by "+ minuteslate +" minutes, sending alert");
+//			sendAlert(v.getVin(), nextjob, minuteslate);
+//
+//		}else{
+//			System.out.println("3");
+//
+//			int minutesearly = arrivaltime.getMinuteOfDay() - eta.getMinuteOfDay();
+//			System.out.println("truck "+v.getVin()+" is going to be ontime by "+ minutesearly + " minutes");
+//
+//		}
 	}
 	
 	private static DateTime addTravelTimeAndCurrentTime(String traveltime){

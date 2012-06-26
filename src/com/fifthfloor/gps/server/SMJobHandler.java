@@ -68,7 +68,6 @@ public class SMJobHandler {
 		Collection<Company> clist = FacadeFactory.getFacade().list(
 				Company.class);
 		Iterator<Company> it = clist.iterator();
-		System.out.println(clist.size());
 		Company thiscompany = null;
 		while (it.hasNext()) {
 			Company nc = it.next();
@@ -110,8 +109,7 @@ public class SMJobHandler {
 		SMJob job = getJob(n);
 		job.setHasarrived(true);
 		if (job == null) {
-			System.out.println("JOB NOT FOUND");
-			log.severe("JOB NOT FOUND");
+			System.out.println("in smjobhandler : JOB NOT FOUND WHEN TRYING TO SET JOBHAS ARRIVED");
 		}
 	}
 	

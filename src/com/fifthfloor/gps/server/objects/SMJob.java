@@ -86,7 +86,6 @@ public class SMJob extends AbstractPojo {
 		String url = "http://maps.google.com/maps/api/geocode/xml?address="+sa[0]+"+"+sa[1]+"+"+sa[2]+"+"+sa[3]+"&sensor=false";
 		MapReader mr = new MapReader(url);
 		this.location = mr.getAddress();
-		System.out.println("LOCATION === "+ location);
 		this.address = address;
 	}
 
@@ -95,7 +94,6 @@ public class SMJob extends AbstractPojo {
 	}
 
 	public void setTime(String time) {
-		System.out.println("my date is:"+ time);
 		this.time = time;
 	}
 
