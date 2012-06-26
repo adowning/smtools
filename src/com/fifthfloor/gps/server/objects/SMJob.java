@@ -83,7 +83,24 @@ public class SMJob extends AbstractPojo {
 
 	public void setAddress(String a) {
 		String[] sa = a.split(" ");
-		String url = "http://maps.google.com/maps/api/geocode/xml?address="+sa[0]+"+"+sa[1]+"+"+sa[2]+"+"+sa[3]+"&sensor=false";
+		String url = null;
+		System.out.println("a  ="+a);
+
+		System.out.println("sa length ="+sa.length);
+		if(sa.length < 4){
+			return;
+		}
+		if(sa.length == 4){
+		 url = "http://maps.google.com/maps/api/geocode/xml?address="+sa[0]+"+"+sa[1]+"+"+sa[2]+"+"+sa[3]+"&sensor=false";
+		}
+		if( sa.length == 5){
+			 url = "http://maps.google.com/maps/api/geocode/xml?address="+sa[0]+"+"+sa[1]+"+"+sa[2]+"+"+sa[3]+"+"+sa[4]+"&sensor=false";
+
+		}
+		if( sa.length == 6){
+			 url = "http://maps.google.com/maps/api/geocode/xml?address="+sa[0]+"+"+sa[1]+"+"+sa[2]+"+"+sa[3]+"+"+sa[4]+"+"+sa[5]+"&sensor=false";
+
+		}
 		MapReader mr = new MapReader(url);
 		this.location = mr.getAddress();
 		this.address = address;

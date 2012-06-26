@@ -19,6 +19,12 @@
 			<param-name>application</param-name>
 			<param-value>ch.ood.iwa.sample.IwaSampleApplication</param-value>
 		</init-param>
+		<init-param>
+			<description>
+			Application widgetset</description>
+			<param-name>widgetset</param-name>
+			<param-value>ch.ood.iwa.sample.widgetset.IwasampleapplicationgaeWidgetset</param-value>
+		</init-param>
 	</servlet>
 	<servlet>
 		<servlet-name>I18NServlet</servlet-name>
