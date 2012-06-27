@@ -53,9 +53,18 @@ public class Company extends AbstractPojo {
     
     private LinkedList<String> smsList = new LinkedList();
 
+    private LinkedList<String> driverList = new LinkedList();
+
     
-    
-    public LinkedList<String> getSmsList() {
+    public LinkedList<String> getDriverList() {
+		return driverList;
+	}
+
+	public void addDriver(String driver) {
+		this.driverList.add(driver);
+	}
+
+	public LinkedList<String> getSmsList() {
 		return smsList;
 	}
 

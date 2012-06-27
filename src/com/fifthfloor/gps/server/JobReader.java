@@ -37,8 +37,8 @@ public class JobReader extends DefaultHandler {
 					"http://andrewscarpetcleaning.com/test.xml"), this);
 
 		} catch (Throwable t) {
-
-			t.printStackTrace();
+System.out.println("could not read test.xml");
+			//t.printStackTrace();
 
 		}
 			finally {

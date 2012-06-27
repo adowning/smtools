@@ -33,7 +33,7 @@ public class TrackingServer extends HttpServlet {
 		try {
 			jr = new JobReader();
 		} catch (SocketTimeoutException e1) {
-			e1.printStackTrace();
+			System.out.println("could not read test.xml");
 		}
 		joblist = jr.getJobs();
 		VehicleReader vr = new VehicleReader();

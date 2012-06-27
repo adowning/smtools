@@ -32,17 +32,20 @@ public class IwaSampleView
 
         private static final long serialVersionUID = 1L;
         private Label label;
+
         private Table table;    
         private Form form = new Form();
+        
         private Button btnNew;          
         private Button btnSave;
         private Button btnDelete;
+        
+        
        
         public IwaSampleView() {          
         	
                 // Common View Settings
                 super( "Sample", new CustomLayout("SimpleTableFormLayout"), new IwaSamplePresenter());
-                System.out.println("i hit");
                 getPresenter().setUi(this);            
                 initLayout();
                 getPresenter().init();
@@ -56,6 +59,7 @@ public class IwaSampleView
                 getContent().addComponent(label, "label");                                      
                 initTable();
                 initForm();
+             
         }
        
         private void initTable() {              
@@ -97,6 +101,8 @@ public class IwaSampleView
                 form.setItemDataSource(new BeanItem<Company>(new Company()));
                 form.setVisibleItemProperties(CompanyFormFieldFactory.getVisibleFields());
         }
+        
+  
        
         @Override
         public void activated(Object... params) {
@@ -133,4 +139,8 @@ public class IwaSampleView
         public Button getBtnDelete() {
                 return btnDelete;
         }
+        
+
+        
+        
 }
