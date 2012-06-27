@@ -41,10 +41,12 @@ public class IwaSamplePresenter extends AbstractModulePresenter<IwaSamplePresent
          */
         public static interface UI extends IwaModuleUI {                
                 Table getTable();
+                
                 Form getForm();        
                 Button getBtnNew();
                 Button getBtnDelete();
-                Button getBtnSave();                                            
+                Button getBtnSave();               
+                
         }
 
         /**
@@ -69,7 +71,9 @@ public class IwaSamplePresenter extends AbstractModulePresenter<IwaSamplePresent
                 getUi().getTable().addListener(tableValueChangeListener);
                 getUi().getBtnNew().addListener(buttonClickListener);
                 getUi().getBtnDelete().addListener(buttonClickListener);
-                getUi().getBtnSave().addListener(buttonClickListener);                                          
+                getUi().getBtnSave().addListener(buttonClickListener);    
+                
+                
         }      
        
         /**
@@ -118,6 +122,8 @@ public class IwaSamplePresenter extends AbstractModulePresenter<IwaSamplePresent
                         }
                 }
         };
+        
+
                
         private void synchronizeFormWithTable() {
                 if (getSelectedCompanyItem() != null) {
@@ -142,6 +148,8 @@ public class IwaSamplePresenter extends AbstractModulePresenter<IwaSamplePresent
                
                 getUi().getBtnSave().setEnabled(true);
         }
+        
+
        
         void handleDeleteButtonClicked() {
                 getUi().showConfirmation("", Lang.getMessage("ConfirmDeleteMsg"), new ConfirmDeleteCompanyDialogListener());

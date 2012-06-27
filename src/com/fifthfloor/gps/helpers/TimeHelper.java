@@ -9,15 +9,11 @@ public class TimeHelper {
 
 	
 	public static int figureTardiness(String timeofnextjob, String traveltime){
-		int i = 0;
 		int hours_add = 0;
 		int minutes_add = 0;
 		//current date time
 		String[]sa = timeofnextjob.split(" ");
 		String tonj = sa[0];
-		String[]sa2 = tonj.split(":");
-		String hour = sa2[0];
-		String minute = sa2[1];
 		
 		String dateString_of_nextjob = "2012-06-25 "+tonj+":00";
 
@@ -43,9 +39,23 @@ public class TimeHelper {
 
 		}
 
-		DateTime currenttime = new DateTime();
 		int difference = next_job_time.getMinuteOfDay() - current_time_plus_traveltime.getMinuteOfDay() ;	
 		return difference;
 		
+	}
+	
+	public static String getDayofWeek(){
+		DateTime currentdatetime = new DateTime();
+		switch (currentdatetime.getDayOfWeek()){
+		case 0: return "Sun";
+		case 1: return "Mon";
+		case 2: return "Tue";
+		case 3: return "Wed";
+		case 4: return "Thu";
+		case 5: return "Fri";
+		case 6: return "Sat";
+
+		}
+	return null;
 	}
 }

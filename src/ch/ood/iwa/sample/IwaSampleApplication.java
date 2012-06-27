@@ -38,8 +38,11 @@ public class IwaSampleApplication extends IwaApplication {
 	protected void initApplication() {
 		
 		 Company c = new Company();
-		 c.setCname("asdfdf");
-		 c.setOwner("asdf");
+		 c.setCname("Andrews");
+		 c.setOwner("ashdowning@gmail.com");
+		 c.setEmail("ashdowning@gmail.com");
+		 c.addVehicle("a vehicle");
+		 c.addDriver("James");
 		 
 		 FacadeFactory.getFacade().store(c);
 		// resp.getWriter().println(FacadeFactory.getFacade().list(Company.class));

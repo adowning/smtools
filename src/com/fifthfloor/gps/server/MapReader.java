@@ -35,8 +35,7 @@ public class MapReader extends DefaultHandler {
 
 		} catch (Throwable t) {
 
-			t.printStackTrace();
-
+			System.out.println("MAP READER HAD ISSUE GETTING URL :"+url);
 		} finally {
 
 		}

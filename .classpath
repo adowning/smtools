@@ -15,8 +15,9 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/confirmdialog-1.1.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/iwa.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/xom-1.2.6.jar"/>
-	<classpathentry kind="lib" path="E:/Downloads/jsoup-1.6.3.jar"/>
-	<classpathentry kind="lib" path="E:/Downloads/JARS/joda-time-2.1/joda-time-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/git/smtools/war/WEB-INF/lib/vaadin-6.7.9.jar"/>
+	<classpathentry kind="lib" path="C:/Downloads/jsoup-1.6.3.jar"/>
+	<classpathentry kind="lib" path="C:/Downloads/joda-time-2.1/joda-time-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Downloads/vaadin-6.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Downloads/vaadin-jpacontainer-agpl-3.0-2.1.0.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

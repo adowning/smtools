@@ -14,7 +14,8 @@
 		<class>ch.ood.iwa.authorization.ModulePermission</class>		
 		<class>com.fifthfloor.gps.server.objects.Company</class>		
 		<class>com.fifthfloor.gps.server.objects.SMJob</class>		
-		
+		<class>com.fifthfloor.gps.server.objects.Driver</class>		
+		<class>com.fifthfloor.gps.server.objects.EventLog</class>		
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="datanucleus.NontransactionalRead" value="true" />
@@ -26,6 +27,7 @@
 			<property name="datanucleus.appengine.ignorableMetaDataBehavior"
 				value="NONE" />
 			<property name="datanucleus.cache.level2.type " value="none"/>
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
 		</properties>
 	</persistence-unit>
 

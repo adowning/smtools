@@ -1,6 +1,23 @@
 package com.fifthfloor.gps.server.objects;
 
-public class Vehicle {
+import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+import org.vaadin.appfoundation.persistence.data.AbstractPojo;
+
+
+
+@Entity
+@Table(name = "driver", uniqueConstraints = { @UniqueConstraint(columnNames = { "id" } ) })
+public class Vehicle extends AbstractPojo {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String title;
 	private String description;
 	private String georss;
@@ -9,7 +26,12 @@ public class Vehicle {
 	private String pubdate;
 	private String driver;
 	private String vin;
+	private UUID id;
 	
+	public Vehicle(){
+		UUID idone = UUID.randomUUID();
+		this.id = idone;
+	}
 	public String getVin() {
 		return vin;
 	}

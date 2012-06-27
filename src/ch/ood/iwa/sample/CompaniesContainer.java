@@ -20,8 +20,8 @@ public class CompaniesContainer extends BeanItemContainer<Company> implements Se
         private static final long serialVersionUID = 1L;
         //TODO add vehicles list to this
         private static final Object[] VISIBLE_COLUMNS = new Object[] {
-                "cname", "owner", "email" };
-    private static final String[] COL_HEADERS = new String[] {"Companyname", "Owner", "Email"};
+                "cname", "owner", "email", "gpstype", "driverList" };
+    private static final String[] COL_HEADERS = new String[] {"Companyname", "Owner", "Email", "GPS Type", "Drivers List"};
         
     /**
      * Default constructor

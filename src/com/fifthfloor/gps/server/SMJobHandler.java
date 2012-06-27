@@ -55,10 +55,23 @@ public class SMJobHandler {
 			if (!smjob.isHasarrived() && smjob.getTechs().toLowerCase().contains(veh.getDriver().toLowerCase())) {
 				return smjob;
 			}else{
+				if(smjob.isHasarrived()){
 				System.out.println(">>>>>>>>> found arrived job");
+				}
+				if(!smjob.getTechs().toLowerCase().contains(veh.getDriver().toLowerCase())){
+					System.out.println("technician for this job is not on record: "+ veh.getDriver().toLowerCase());
+					System.out.println("for job with techs: "+ smjob.getTechs().toLowerCase());
+					smjob.setTechs("none");
+				}
 			}
 		}
-		SMJob nextjob = activejobs.get(0);
+		SMJob nextjob = null;
+		if(activejobs.size() > 0){
+			 nextjob = activejobs.get(0);
+
+		}else{
+			System.out.println("THERE ARE NO JOBS TO DO TODAY!?!");
+		}
 
 		return nextjob;
 
@@ -113,5 +126,51 @@ public class SMJobHandler {
 		}
 	}
 	
+	public static void persistJobs(){
+		
+		ArrayList<SMJob> joblist = TrackingServer.getJoblist();
+		if(joblist.size() == 0 || joblist == null){
+			System.out.println("smjobhandler: joblist in tracklist is null or empty");
+			return;
+			
+		}
+		
+		ArrayList<SMJob> storedjobs = (ArrayList) FacadeFactory.getFacade().list(SMJob.class);
+		
+		//first clear out old jobs from the day(s) before
+		for(SMJob storedjob : storedjobs){
+			DateTime currenttime = new DateTime();
+			if(storedjob.getArrivaltime().getDayOfYear() != currenttime.getDayOfYear())	{
+				FacadeFactory.getFacade().delete(storedjob);
+				System.out.println("removed an oldjob from storage"+storedjob.getCustomername());
+			}
+		}
+		//update jobs or add new ones
+		boolean exists = false;
+		for(SMJob newjob : joblist){
+			//see if the job exists
+			for(SMJob storedjob : storedjobs){
+				if(storedjob.getCustomername().toLowerCase().equals(newjob.getCustomername().toLowerCase())){
+					exists = true;
+				}
+				//see if anything changed
+				if(exists){
+					if(!storedjob.getAddress().toLowerCase().equals(newjob.getAddress().toLowerCase())){
+						FacadeFactory.getFacade().delete(storedjob);
+						FacadeFactory.getFacade().store(newjob);
+
+					}
+				}
+				//add a new job in
+				else{
+					//before storing a new job make sure it has some techs listed, if not its probbaly a task
+					if(!newjob.getTechs().equals("none")){
+						FacadeFactory.getFacade().store(newjob);
+
+					}
+				}
+			}
+		}
+	}
 
 }

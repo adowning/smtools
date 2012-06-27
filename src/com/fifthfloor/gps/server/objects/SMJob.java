@@ -10,6 +10,8 @@ import org.vaadin.appfoundation.persistence.data.AbstractPojo;
 import com.fifthfloor.gps.helpers.MapsHelper;
 import com.fifthfloor.gps.server.MapReader;
 
+
+
 @Entity
 @Table(name = "appSMJob", uniqueConstraints = { @UniqueConstraint(columnNames = { "customername" }) })
 public class SMJob extends AbstractPojo {

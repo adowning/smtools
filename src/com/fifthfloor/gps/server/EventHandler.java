@@ -12,6 +12,7 @@ import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
 
 import com.fifthfloor.gps.helpers.TimeHelper;
 import com.fifthfloor.gps.server.objects.Company;
+import com.fifthfloor.gps.server.objects.EventLog;
 import com.fifthfloor.gps.server.objects.SMJob;
 import com.fifthfloor.gps.server.objects.Vehicle;
 
@@ -22,7 +23,6 @@ public class EventHandler {
 	static DateTime currenttime = new DateTime();
 	
 	public static void checkForEvent(Vehicle v,  SMJob job, String traveltime ){
-		System.out.println("event handler: hit");
 		checkForShortTimeAlert(v, traveltime, job );
 	}
 	
@@ -32,8 +32,11 @@ public class EventHandler {
 		int difference = TimeHelper.figureTardiness(nextjob.getTime() , traveltime);
 		if( difference < 5 ){
 			System.out.println("eventhandler >> your going to be late by " + difference);
+			EventLog el = new EventLog (v, nextjob, "ontime", currenttime);
+			
 		}else{
 			System.out.println("eventhandler >> your going to be ontime by "+difference);
+			EventLog el = new EventLog (v, nextjob, "late", currenttime);
 
 		}
 //		DateTime arrivaltime = nextjob.getArrivaltime();
@@ -58,16 +61,16 @@ public class EventHandler {
 //
 //		}
 	}
-	
-	private static DateTime addTravelTimeAndCurrentTime(String traveltime){
-		DateTime eta = null;
-		String[] sa = traveltime.split(",");
-		eta = currenttime;
-		eta = eta.plusHours(Integer.valueOf(sa[0]));
-		eta = eta.plusMinutes(Integer.valueOf(sa[1]));
-		return eta;
-		
-	}
+//	
+//	private static DateTime addTravelTimeAndCurrentTime(String traveltime){
+//		DateTime eta = null;
+//		String[] sa = traveltime.split(",");
+//		eta = currenttime;
+//		eta = eta.plusHours(Integer.valueOf(sa[0]));
+//		eta = eta.plusMinutes(Integer.valueOf(sa[1]));
+//		return eta;
+//		
+//	}
 	
 	private static void sendAlert(String veh, SMJob nextjob, int minuteslate){
 		//check if sms has been sent for this job

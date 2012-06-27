@@ -11,6 +11,7 @@ import javax.jdo.PersistenceManager;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -27,7 +28,7 @@ public class JobReader extends DefaultHandler {
 	private ArrayList<SMJob> jobs;
 	private String characters;
 
-	public JobReader() throws java.net.SocketTimeoutException {
+	public  JobReader() throws java.net.SocketTimeoutException {
 
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		try {
@@ -37,14 +38,12 @@ public class JobReader extends DefaultHandler {
 					"http://andrewscarpetcleaning.com/test.xml"), this);
 
 		} catch (Throwable t) {
-
-			t.printStackTrace();
-
+			System.out.println("jr > could not read test.xml");
+			//t.printStackTrace();
 		}
 			finally {
 		}
 
-		
 
 	}
 
@@ -63,6 +62,7 @@ public class JobReader extends DefaultHandler {
 
 		if (qualifiedName.equals("smJob")) {
 			SMJob job = new SMJob();
+			
 			jobStack.push(job);
 		}
 
@@ -76,6 +76,7 @@ public class JobReader extends DefaultHandler {
 			if (qualifiedName.equals("smJob")) {
 
 				jobs.add(jobStack.pop());
+
 
 			} else if (qualifiedName.equals("address")) {
 
@@ -98,8 +99,17 @@ public class JobReader extends DefaultHandler {
 			} else if (qualifiedName.equals("techs")) {
 
 				SMJob job = jobStack.pop();
-				job.setTechs(characters);
-				jobStack.push(job);
+				//TODO do me right
+				//System.out.println("jobreader: trying to set techs to "+ characters.toLowerCase());
+				if(characters.contains("phil") || characters.toLowerCase().contains("james")){
+					job.setTechs(characters);
+					jobStack.push(job);
+
+				}else{
+					System.out.println("jobreader: trying to set techs and found a none in job");
+					//dont push job if there is no tech
+					job.setTechs("none");
+				}
 
 			}
 

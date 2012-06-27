@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
 
 import com.fifthfloor.gps.helpers.TimeHelper;
 import com.fifthfloor.gps.server.objects.SMJob;
@@ -26,38 +27,57 @@ public class TrackingServer extends HttpServlet {
 	public static Map vehicleLocations = new HashMap();
 	public static ArrayList<SMJob> joblist = new ArrayList();
 	public static ArrayList<Vehicle> vehiclelist = new ArrayList();
-
+	public String DAYOFWEEK = TimeHelper.getDayofWeek();
+	public boolean initial_read = false;
+	
 	public TrackingServer() {
 
-		JobReader jr = null;
-		try {
-			jr = new JobReader();
-		} catch (SocketTimeoutException e1) {
-			e1.printStackTrace();
-		}
-		joblist = jr.getJobs();
-		VehicleReader vr = new VehicleReader();
-		vehiclelist = vr.getVehicles();
-		setupVehicles(vr);
-
-		// THIS IS STARTUP LOOP
-		for (Vehicle v : vehiclelist) {
+			boolean b = initialRead();
+			System.out.println("tr>"+ b);
+	}
+	
+	public boolean initialRead(){
+		if(!initial_read){
+			System.out.println(DAYOFWEEK);
+			VehicleReader vr = new VehicleReader();
+			vehiclelist = vr.getVehicles();
+			setupVehicles(vr);
+			
+			JobReader jr = null;
 			try {
-				SMJob job = SMJobHandler.getNextJob(v);
-				System.out.println("tracking server: time of next job = "
-						+ job.getTime());
+				jr = new JobReader();
+				ArrayList<SMJob> joblist = jr.getJobs();
 				
-				System.out.println("tracking server: travel time to next job "
-						+ getTraveltimeToNextJob(v));
+			} catch (SocketTimeoutException e1) {
+				System.out.println("ts >could not read test.xml");
+				initial_read = false;
+				return false;
+			}
+			joblist = jr.getJobs();
+			
+
+			// THIS IS STARTUP LOOP
+			for (Vehicle v : vehiclelist) {
+				try {
+					SMJob job = SMJobHandler.getNextJob(v);
+					System.out.println("tracking server: time of next job = "
+							+ job.getTime());
+					
+					System.out.println("tracking server: travel time to next job "
+							+ getTraveltimeToNextJob(v));
+					
+					//TimeHelper.figureTardiness(job.getTime(), getTraveltimeToNextJob(v));
+					EventHandler.checkForEvent(v, job, getTraveltimeToNextJob(v));
+					tsloopnumber++;
+				} catch (NullPointerException e) {
+					System.out.println("tracking server: "
+							+ "NULLLLLLITIOUS");
 				
-				//TimeHelper.figureTardiness(job.getTime(), getTraveltimeToNextJob(v));
-				EventHandler.checkForEvent(v, job, getTraveltimeToNextJob(v));
-			} catch (NullPointerException e) {
-				System.out.println("tracking server: "
-						+ "NULLLLLLITIOUS");
+				}
 			}
 		}
-
+		System.out.println("tr> big loop number = "+ tsloopnumber);
+		return true;
 	}
 
 	private void updateServer() {
@@ -113,7 +133,7 @@ public class TrackingServer extends HttpServlet {
 		}
 
 		// TODO add me in
-		// EventHandler.checkForEvent(v, travelTime);
+		 //EventHandler.checkForEvent(v, job, travelTime);
 
 		return travelTime;
 	}
@@ -136,7 +156,7 @@ public class TrackingServer extends HttpServlet {
 			try {
 				i = Integer.parseInt(sa[1].replaceAll("[^0-9]", "").trim());
 			} catch (ArrayIndexOutOfBoundsException e) {
-				System.out.println("ERROR = COULD PARSE MINUTES");
+				System.out.println("ERROR = COULD NOT PARSE MINUTES with"+time);
 				i = 0;
 			}
 
@@ -154,7 +174,7 @@ public class TrackingServer extends HttpServlet {
 				String vin = words[3];
 				// TODO fix me
 				if (vin.equals("358696045901207")) {
-					vr.setDriver(vin, "James");
+					vr.setDriver(vin, "phil");
 				}
 			}
 		} catch (NullPointerException e) {
